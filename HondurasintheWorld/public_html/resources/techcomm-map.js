@@ -92,13 +92,13 @@ function initializeMap() {
       for (var i = 1; i < data.length; i++) {
         map.data.add({
           properties: {
-            type: data[i][0],
-            name: data[i][1],
-            description: data[i][2],
-            website: data[i][3],
-            startdate: data[i][4],
-            enddate: data[i][5],
-            address: data[i][6]
+            tipoTrabajo: data[i][0],
+            nombre: data[i][1],
+            ciudadOrigen: data[i][2],
+            cargo: data[i][3],
+            email: data[i][4],
+            website: data[i][5],
+            date: data[i][6]
           },
           geometry: {
             lat: data[i][7], 
@@ -181,10 +181,10 @@ function createInfoWindow(feature) {
 
   var content = $('<div id="infowindow" class="infowindow">');
   
-  content.append($('<h2>').text(feature.getProperty('name')));
+  content.append($('<h2>').text(feature.getProperty('nombre')));
 
   var typeAndWebsite = $('<p>');
-  typeAndWebsite.append($('<em>').text(feature.getProperty('type')));
+  typeAndWebsite.append($('<em>').text(feature.getProperty('tipoTrabajo')));
   if (feature.getProperty('website')) {
     typeAndWebsite.append($('<span>')
         .text(' (' + feature.getProperty('website') + ')'));
